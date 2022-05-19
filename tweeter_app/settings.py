@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'bootstrap4',
+    'bootstrap_datepicker_plus',  # https://github.com/monim67/django-bootstrap-datepicker-plus
+
+
     'users.apps.UsersConfig',
     'tweets.apps.TweetsConfig',
 ]
@@ -121,7 +126,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = 'users.CustomUser'  # new
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+django_heroku.settings(locals())  # new
+BOOTSTRAP4 = {'include_jquery': True}  # new
+
+LOGIN_REDIRECT_URL = 'home'  # new
+LOGOUT_REDIRECT_URL = 'home'  # new
