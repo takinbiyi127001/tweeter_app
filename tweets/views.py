@@ -1,7 +1,8 @@
-# from django.shortcuts import render, redirect
+# from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
-from django.urls import reverse
+from django.views.generic.edit import CreateView, DeleteView
+from django.urls import reverse, reverse_lazy
 from .models import Tweet
 # from .forms import TweetForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -30,6 +31,12 @@ class TweetCreatView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+def delete(request, id):
+    member = Tweet.objects.get(id=id)
+    member.delete()
+    return HttpResponseRedirect(reverse('home'))
 
 # Function-based View
 

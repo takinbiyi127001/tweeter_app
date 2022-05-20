@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'fontawesomefree',
+    'rest_framework',
     'bootstrap4',
     'bootstrap_datepicker_plus',  # https://github.com/monim67/django-bootstrap-datepicker-plus
 
-
     'users.apps.UsersConfig',
     'tweets.apps.TweetsConfig',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,13 @@ BOOTSTRAP4 = {'include_jquery': True}  # new
 
 LOGIN_REDIRECT_URL = 'home'  # new
 LOGOUT_REDIRECT_URL = 'home'  # new
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # new
+# EMAIL_HOST =
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        # 'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}

@@ -6,6 +6,11 @@
         <div class="card-body">
             <h5 class="card-title">{{ tweet.body }}</h5>
             <p class="card-text">{{ tweet.user }}</p>
+            {% if user.is_authenticated %}
+                <a href="delete/{{ tweet.id }}" class="d-flex justify-content-end">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            {% endif %}
         </div>
     </div>
 {% endfor %}

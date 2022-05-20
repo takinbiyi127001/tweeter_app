@@ -1,12 +1,14 @@
+{% load static %}
 {% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 {% bootstrap_css %}
-
 {% block extrahead %}
 {% endblock %}
+
 <title>Tweeter</title>
+<script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 </head>
 
 <body>
