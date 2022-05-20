@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'fontawesomefree',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     'bootstrap4',
     'bootstrap_datepicker_plus',  # https://github.com/monim67/django-bootstrap-datepicker-plus
 
@@ -144,5 +146,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         # 'rest_framework.permissions.AllowAny',
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
 }

@@ -12,6 +12,7 @@ django-bootstrap4 = "*"
 django-bootstrap-datepicker-plus = "*"
 djangorestframework = "*"
 fontawesomefree = "*"
+django-rest-auth = "*"
 
 [dev-packages]
 
