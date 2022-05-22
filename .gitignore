@@ -1,0 +1,3 @@
+staticfiles
+tweeter_app/.env
+db.sqlite3

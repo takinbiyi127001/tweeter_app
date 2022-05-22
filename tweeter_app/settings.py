@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -132,15 +133,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'  # new
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())  # new
 BOOTSTRAP4 = {'include_jquery': True}  # new
 
 LOGIN_REDIRECT_URL = 'home'  # new
 LOGOUT_REDIRECT_URL = 'home'  # new
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # new
-# EMAIL_HOST =
+env = environ.Env()  # new
+
+# reading .env file
+environ.Env.read_env()  # new
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = env.str('GMAIL_USERNAME')  # new
+EMAIL_HOST_PASSWORD = env.str('GMAIL_PASSWORD')  # new
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -152,3 +160,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
 }
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())  # <- this line should be a the end of the file
