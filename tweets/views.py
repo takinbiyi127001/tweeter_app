@@ -1,11 +1,12 @@
-# from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from django.views.generic import ListView
+from django.views.generic import ListView, View
 from django.views.generic.edit import CreateView, DeleteView
 from django.urls import reverse, reverse_lazy
 from .models import Tweet
 # from .forms import TweetForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 
 
 # Create your views here.
@@ -37,6 +38,23 @@ def delete(request, id):
     member = Tweet.objects.get(id=id)
     member.delete()
     return HttpResponseRedirect(reverse('home'))
+
+
+class SearchView(ListView):
+    model = Tweet
+    template_name = 'tweets/search.html'
+    context_object_name = 'all_search_results'
+
+    def get_queryset(self):
+        result = super(SearchView, self).get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            tweet_result = Tweet.objects.filter(body__contains=query)
+            result = tweet_result
+        else:
+            result = Tweet.objects.all()
+        return result
+
 
 # Function-based View
 

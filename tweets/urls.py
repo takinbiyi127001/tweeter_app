@@ -1,7 +1,7 @@
 from django.urls import path
 
 
-from .views import TweetCreatView, TweetListView
+from .views import TweetCreatView, TweetListView, SearchView
 from . import views
 
 urlpatterns = [
@@ -10,5 +10,6 @@ urlpatterns = [
 
     path('', TweetListView.as_view(), name='home'),
     path('tweets/new/', TweetCreatView.as_view(), name='tweet_new'),
+    path('search/', SearchView.as_view(), name='search'),
     path('delete/<int:id>', views.delete, name='delete'),
 ]

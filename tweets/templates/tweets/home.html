@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+
+
+
 {% block content %}
 {% for tweet in object_list %}
     <div class="card">
@@ -12,7 +15,10 @@
                 </a>
             {% endif %}
         </div>
+
     </div>
 {% endfor %}
+
+
 
 {% endblock %}
