@@ -40,9 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'fontawesomefree',
+
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+    'dj_rest_auth',
     'bootstrap4',
     'bootstrap_datepicker_plus',  # https://github.com/monim67/django-bootstrap-datepicker-plus
 
@@ -163,3 +169,4 @@ REST_FRAMEWORK = {
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())  # <- this line should be a the end of the file
+SITE_ID = 1

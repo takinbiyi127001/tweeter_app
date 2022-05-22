@@ -15,6 +15,7 @@ fontawesomefree = "*"
 django-rest-auth = "*"
 wheel = "*"
 django-environ = "*"
+dj-rest-auth = {extras = ["with_social"], version = "*"}
 
 [dev-packages]
 
