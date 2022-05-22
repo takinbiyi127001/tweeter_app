@@ -13,7 +13,7 @@ django-bootstrap-datepicker-plus = "*"
 djangorestframework = "*"
 fontawesomefree = "*"
 django-rest-auth = "*"
-
+wheel = "*"
 django-environ = "*"
 
 [dev-packages]
