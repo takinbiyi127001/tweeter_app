@@ -52,9 +52,12 @@ INSTALLED_APPS = [
     'bootstrap4',
     'bootstrap_datepicker_plus',  # https://github.com/monim67/django-bootstrap-datepicker-plus
 
+    'django_countries',
+    'phonenumber_field',
     'users.apps.UsersConfig',
     'tweets.apps.TweetsConfig',
     'api',
+    'payments',
 ]
 
 MIDDLEWARE = [

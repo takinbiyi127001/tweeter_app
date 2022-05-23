@@ -16,6 +16,10 @@ django-rest-auth = "*"
 wheel = "*"
 django-environ = "*"
 dj-rest-auth = {extras = ["with_social"], version = "*"}
+django-countries = "*"
+django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
+babel = "*"
+stripe = "*"
 
 [dev-packages]
 

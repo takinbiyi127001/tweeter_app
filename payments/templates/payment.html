@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% block title %}Tweeter | Payment{% endblock %}
+
+{% block content %}
+  <h2>Checkout</h2>
+  <form action="{% url 'charge' %}" method="post">
+    {% csrf_token %}
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_51L2SROElcKWVmfVXzOtL3W2leoTqZzF9CTnf3RE90aXVtOtZ5q9HpL0tjB60TaE7qG1XoASmxaCW6NubY4xu6Qgv00SBMVTOtX"
+            data-description="A Django Charge"
+            data-amount="500"
+            data-locale="auto">
+    </script>
+  </form>
+{% endblock content %}

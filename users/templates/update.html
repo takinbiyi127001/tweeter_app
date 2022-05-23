@@ -12,6 +12,7 @@
   </h4>
   <form method="post">{% csrf_token %}
     {% bootstrap_form form %}
+
     {% buttons submit='Ok' %}{% endbuttons %}
   </form>
 {% endblock content %}

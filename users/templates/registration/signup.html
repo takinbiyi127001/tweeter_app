@@ -2,10 +2,15 @@
 {% load bootstrap4 %}
 {% block content %}
 
-  <h4>Sign Up</h4>
-  <form method="post">{% csrf_token %}
+  <h4>Create your Tweeter account</h4>
+    <div class="card">
+  <div class="card-body">
+    <form method="post">{% csrf_token %}
     {% bootstrap_form form %}
-    {% buttons submit='Ok' %}{% endbuttons %}
+    {% buttons submit='Create account' %}{% endbuttons %}
   </form>
+  </div>
+</div>
+
 
 {% endblock content %}
