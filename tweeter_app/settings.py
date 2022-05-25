@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    # Third-party
+    "crispy_forms",
+    "crispy_bootstrap5",
     'fontawesomefree',
 
     'rest_framework',
@@ -54,6 +56,8 @@ INSTALLED_APPS = [
 
     'django_countries',
     'phonenumber_field',
+
+    # Local
     'users.apps.UsersConfig',
     'tweets.apps.TweetsConfig',
     'api',
@@ -173,3 +177,7 @@ REST_FRAMEWORK = {
 # Activate Django-Heroku.
 django_heroku.settings(locals())  # <- this line should be a the end of the file
 SITE_ID = 1
+
+# django-crispy-forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
